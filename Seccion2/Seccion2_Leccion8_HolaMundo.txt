@@ -1,0 +1,12 @@
+void main(){
+  
+  //Puedo declarar una variable de tipo 'var' y como le doy el valor de en este caso un nombre, Dart reconoce que la variable es un String y lo puede agregar al texto del print.
+  
+  //Al declarar una variable de tipo String, S es Mayúscula forzosamente.
+  var nombre='Mariana';
+  String segundoNombre="Jimenez";
+  print('Hola $nombre  $segundoNombre');
+  
+  //Aquí nada más pude poner espacio después del hola. El apellido sale pegado con el nombre.
+  print('Hola ' + nombre + segundoNombre);
+}
