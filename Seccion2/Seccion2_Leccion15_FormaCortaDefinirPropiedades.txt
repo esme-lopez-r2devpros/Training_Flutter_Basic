@@ -1,0 +1,33 @@
+void main(){
+  
+  //En dart el new es opcional.
+  final wolverine = new Heroe( 
+    nombre:'Logan',
+    poder:'Regeneracion'
+  );
+  
+  //final- es muy parecido a una constante. se le podrá dar otro valor a las propiedades pero no se podrá hacer 
+  //wolverine=new Heroe();
+  
+  print(wolverine);
+ /* print(wolverine.poder);
+  print(wolverine.nombre);*/
+}
+
+
+class Heroe{
+  
+  //propiedades
+  String nombre;
+  String poder;
+  
+ /* Heroe({String nombre='Sin nombre', String poder}){
+    this.nombre=nombre;
+    this.poder=poder;
+  }*/
+  
+  Heroe({ this.nombre, this.poder });
+  
+  String toString()=>'nombre: $nombre - poder: $poder';
+  
+}
