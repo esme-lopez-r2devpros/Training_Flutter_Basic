@@ -1,0 +1,31 @@
+
+//Esta es una función. 
+void main()
+{
+  
+  //Print también es una función de tipo void. El void se muestra cuando pones el cursor sobre la palabra print.
+ //print("Hola")  ;
+String mensaje= saludar2(texto:"Comunicado oficial" , aviso: "Mañana no hay clases");
+  print(mensaje);
+
+}
+
+/*void saludar()
+{
+  print("Hola Anastasia");
+}*/
+
+
+//para que se tenga que aclarar qué valor es cada parámetro donde se manda llamar la funcion, le pongo unas llaves a los parámetros.
+String saludar({String texto, String aviso})
+{
+  //Hice prueba enviando dos returns y solo me imprime el primero.
+  /*return texto; 
+  return aviso;*/
+  
+  return "$texto $aviso";    
+}
+
+//Como sólo hice una línea en la función anterior, se puede hacer en una sola línea toda la función
+
+String saludar2({String texto,  String aviso})=>"$texto $aviso";
