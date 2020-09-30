@@ -1,0 +1,57 @@
+void main()
+{
+  //Los map son pares de valores. El primer valor es la llave y el segundo es el value.  Los maps también son llamados Diccionarios de datos en algunos otros lenguajes de programación.
+  
+  
+  String propiedad='soltero';
+  
+  Map persona=
+  {
+    'nombre': 'Carlos',
+    'edad' : 32,
+    'soltero':true
+  };
+  
+  print(persona);
+  
+  
+  Map<String, dynamic> persona2=
+  {
+    'nombre': 'Carla',
+    'edad' : 16,
+    'soltero':false
+  };
+  print(persona2);
+  
+  
+  print(persona['nombre']);
+  print(persona['edad']);
+  print(persona[propiedad]);
+  
+  
+  //De esta forma entra cualquier valor tanto en el Key como en el valor.
+  Map personas={
+   1: 'Tony' ,
+    2: 'Peter',
+    9: 'Strange'
+  };
+  
+  
+  //Tipado de esta manera ya no me permite ingresar un string en Key
+  Map<int, String> personasTipado={
+    1: 'Tony' ,
+    2: 'Peter',
+    9: 'Strange'
+      //'20': 'Orange' (Esto ya no es permitido)
+  };
+  
+  personasTipado.addAll({4: 'Banner'});
+  
+  print (personasTipado);
+    
+    //Por ejemplo para obtener el nombre de Peter de personas o personasTipado sería así:
+  print(personas[2]);
+    
+    
+    
+}
