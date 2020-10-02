@@ -8,6 +8,8 @@ class HomePage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text('Titulo'),
+        centerTitle: true,
+        elevation: 2.5,
         ),
         body: Center(
           child: Text('Hola mundo'),
