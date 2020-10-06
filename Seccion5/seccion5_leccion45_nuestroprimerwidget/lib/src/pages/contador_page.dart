@@ -33,27 +33,29 @@ int  _conteo=0;
             ],
           )
         ),
-        floatingActionButton:
-
-         FloatingActionButton(
-         
-         child: Icon(Icons.add),
-          //child: Text('Hola'),
-          onPressed: () {
-           // print('Hola mundo!');
-            
-            setState(() {
-_conteo++;
-            }
-            );
-          },
-          
-          
-         // onPressed: null, //Es como teener un disable true
-        ),
         floatingActionButtonLocation: 
         FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: _crearBotones()              
+          
+         // onPressed: null, //Es como teener un disable true
+               
     );
+  }
+
+
+  Widget _crearBotones(){
+    return Row(
+      mainAxisAlignment:MainAxisAlignment.end,
+children:<Widget>[
+  SizedBox(width:30),
+FloatingActionButton(child: Icon(Icons.exposure_zero), onPressed:null),
+Expanded(child: SizedBox()),
+FloatingActionButton(child: Icon(Icons.remove), onPressed:null),
+SizedBox(width:5.0),
+FloatingActionButton(child: Icon(Icons.add), onPressed:null),
+],
+);
+    
   }
 
 }
