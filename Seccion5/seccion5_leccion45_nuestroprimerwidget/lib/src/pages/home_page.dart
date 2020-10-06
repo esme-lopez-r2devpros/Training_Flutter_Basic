@@ -4,6 +4,8 @@ class HomePage extends StatelessWidget{
 
 final estiloTexto = new TextStyle(fontSize: 25);
 
+final conteo=10;
+
 @override
   Widget build(BuildContext context) {
     
@@ -19,7 +21,7 @@ final estiloTexto = new TextStyle(fontSize: 25);
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget> [
               Text('Numero de clicks:', style:estiloTexto),
-              Text('0', style:estiloTexto),
+              Text('$conteo', style:estiloTexto),
             ],
           )
         ),
