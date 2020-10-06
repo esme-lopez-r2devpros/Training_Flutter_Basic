@@ -23,14 +23,21 @@ final estiloTexto = new TextStyle(fontSize: 25);
             ],
           )
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton:
+
+         FloatingActionButton(
+         
          child: Icon(Icons.add),
           //child: Text('Hola'),
           onPressed: () {
             print('Hola mundo!');
           },
+          
+          
          // onPressed: null, //Es como teener un disable true
         ),
+        floatingActionButtonLocation: 
+        FloatingActionButtonLocation.centerDocked,
     );
   }
 
