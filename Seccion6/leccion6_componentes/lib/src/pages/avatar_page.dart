@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AvatarPAge extends StatelessWidget {
+class AvatarPage extends StatelessWidget {
  
 
   @override
