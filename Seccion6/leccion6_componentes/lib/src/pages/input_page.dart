@@ -10,6 +10,8 @@ class _InputPageState extends State<InputPage> {
   String _nombre="";
   String _email="";
   String _fecha="";
+  String _opcionSelecccionada = 'Volar';
+  List<String> _poderes= ['Volar', 'Rayos X', 'Super Aliento', 'Super Fuerza'];
   TextEditingController _inputFieldDateController=new TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,8 @@ class _InputPageState extends State<InputPage> {
           _crearPassword(),
           Divider(),
           _crearFecha(context),
+          Divider(),
+          _crearDropdow(),
           Divider(),
           _crearPersona(),
           Divider(),
@@ -62,6 +66,7 @@ class _InputPageState extends State<InputPage> {
     return ListTile(
       title: Text('Nombre es : $_nombre'),
       subtitle: Text('Email: $_email'),
+      trailing: Text(_opcionSelecccionada),
     );
   }
 
@@ -136,5 +141,42 @@ class _InputPageState extends State<InputPage> {
         _inputFieldDateController.text=_fecha;
       });
     }
+  }
+
+    List<DropdownMenuItem<String>> getOpcionesDropdown(){
+          List<DropdownMenuItem<String>> lista = new List();
+          _poderes.forEach((poder){
+            lista.add(DropdownMenuItem(
+              child: Text(poder),
+              value:poder
+              ));
+          });
+
+          return lista;
+    }
+
+  Widget _crearDropdow(){
+
+
+    return Row(
+      children: [
+        Icon(Icons.select_all),
+        SizedBox(width: 30.0),
+         Expanded(
+                    child: DropdownButton(
+      value: _opcionSelecccionada,
+      items: getOpcionesDropdown(),
+      onChanged: (opt){
+            setState((){
+              _opcionSelecccionada=opt;
+            });
+      },
+    ),
+         )
+      ],
+    );
+    
+    
+    
   }
 }
