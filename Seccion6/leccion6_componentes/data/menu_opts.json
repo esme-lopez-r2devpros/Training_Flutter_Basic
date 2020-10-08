@@ -21,5 +21,11 @@
             "icon" : "donut_large",
             "texto": "Animated Container"
         }
+        ,
+        {
+            "ruta" : "inputs",
+            "icon" : "input",
+            "texto": "Inputs"
+        }
     ]
 }
