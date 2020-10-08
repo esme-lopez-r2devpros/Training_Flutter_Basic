@@ -7,6 +7,7 @@ import 'package:leccion6_componentes/src/pages/avatar_page.dart';
 import 'package:leccion6_componentes/src/pages/card_page.dart';
 import 'package:leccion6_componentes/src/pages/home_page.dart';
 import 'package:leccion6_componentes/src/pages/input_page.dart';
+import 'package:leccion6_componentes/src/pages/slider_page.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes(){
   return <String,WidgetBuilder> {
@@ -16,6 +17,8 @@ Map<String, WidgetBuilder> getApplicationRoutes(){
         'card': (BuildContext context) => CardPage(),
         'animatedContainer': (BuildContext context) => AnimatedContainerPage(),
         'inputs' : (BuildContext context) => InputPage(),
+        'slider' : (BuildContext context) => SliderPage(),
+        
       };
 }
 
