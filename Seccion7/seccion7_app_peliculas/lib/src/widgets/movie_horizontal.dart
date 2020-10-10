@@ -47,11 +47,12 @@ Widget _tarjeta(BuildContext context, Pelicula pelicula){
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
-                              child: FadeInImage(
+                child: FadeInImage(
                   image: NetworkImage(pelicula.getPosterImg()),
                   placeholder: AssetImage('assets/img/no-image.jpg'),
                   fit: BoxFit.cover,
                   height: 100.0,
+                  
                 ),
               ),
               SizedBox(height: 2.0),
