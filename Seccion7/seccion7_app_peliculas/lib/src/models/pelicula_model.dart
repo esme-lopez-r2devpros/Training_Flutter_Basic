@@ -65,5 +65,14 @@ Pelicula.fromJsonMap(Map<String, dynamic> json){
       overview        = json['overview'];
       releaseDate     = json['release_date'];
 }
+
+getPosterImg(){
+
+  if(posterPath==null){
+    return 'http://whatcommasoniclodge.org/wp-content/uploads/2016/12/112815904-stock-vector-no-image-available-icon-flat-vector-illustration.jpg';
+  }else{
+    return 'https://image.tmdb.org/t/p/original/$posterPath';
+  }  
+}
 }
 //enum OriginalLanguage { EN, KO, JA, IT }
