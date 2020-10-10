@@ -29,16 +29,18 @@ class MovieHorizontal extends StatelessWidget {
 
     return Container(
       height: _screenSize.height * 0.2,
-      child: PageView(
+      child: PageView.builder(
         pageSnapping: false,
         controller: _pageController,
-          children: _tarjetas(context),        
+        itemCount: peliculas.length,
+         itemBuilder: (context, i)=> _tarjeta(context, peliculas[i]),
+         
       ),
     );
   }
 
- List<Widget> _tarjetas(BuildContext context){
-      return peliculas.map( (pelicula) {
+Widget _tarjeta(BuildContext context, Pelicula pelicula){
+    
         return Container(
           margin: EdgeInsets.only(right: 15.0),
           child: Column(
@@ -60,7 +62,8 @@ class MovieHorizontal extends StatelessWidget {
               )
             ],
           ),
-        );
-      }).toList();
-  }
+        );      
+}
+
+ 
  }
