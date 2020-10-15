@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:seccion11_patron_bloc/src/models/producto_model.dart';
+import 'package:seccion11_patron_bloc/src/providers/productos_provider.dart';
 import 'package:seccion11_patron_bloc/utils/utils.dart' as utils;
 
 class ProductoPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class _ProductoPageState extends State<ProductoPage> {
 
 
   final formKey= GlobalKey<FormState>();
+  final productoProvider =  new ProductosProvider();
   ProductoModel producto=new ProductoModel();
 
   @override
@@ -123,5 +125,7 @@ class _ProductoPageState extends State<ProductoPage> {
     print(producto.titulo);
     print(producto.valor);
     print(producto.disponible);
+
+    productoProvider.crearProducto(producto);
   }
 }
