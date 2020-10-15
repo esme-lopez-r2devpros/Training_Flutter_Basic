@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:seccion11_patron_bloc/src/models/producto_model.dart';
 import 'package:seccion11_patron_bloc/utils/utils.dart' as utils;
 
 class ProductoPage extends StatefulWidget {
@@ -8,7 +10,10 @@ class ProductoPage extends StatefulWidget {
 }
 
 class _ProductoPageState extends State<ProductoPage> {
+
+
   final formKey= GlobalKey<FormState>();
+  ProductoModel producto=new ProductoModel();
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,7 @@ class _ProductoPageState extends State<ProductoPage> {
               children: [
                 _crearNombre(),
                 _crearPrecio(),
+                _crearDisponible(),
                 _crearBoton(),
               ],
             ),
@@ -46,10 +52,12 @@ class _ProductoPageState extends State<ProductoPage> {
 
   Widget _crearNombre(){
     return TextFormField(
+      initialValue: producto.titulo,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
         labelText: 'Producto',
       ),
+      onSaved: (value)=>producto.titulo=value,
       validator: (value){
         if(value.length<3)
         {
@@ -63,10 +71,12 @@ class _ProductoPageState extends State<ProductoPage> {
 
   Widget _crearPrecio(){
     return TextFormField(
+      initialValue: producto.valor.toString(),
       keyboardType: TextInputType.numberWithOptions(decimal: true),
       decoration: InputDecoration(
         labelText: 'Precio',
       ),
+      onSaved: (value)=>producto.valor=double.parse(value),
       validator: (value){
         if(utils.isNumeric(value)){
           return null;
@@ -91,10 +101,27 @@ class _ProductoPageState extends State<ProductoPage> {
     );
   }
 
+  Widget _crearDisponible(){
+    return SwitchListTile(
+      title: Text('Disponible'),
+      value: producto.disponible,
+      activeColor: Colors.deepPurple,
+      onChanged: (value)=>setState((){
+        producto.disponible=value;
+      }),
+    );
+      
+    
+  }
+
   void _submit(){
 
 
     if(!formKey.currentState.validate()) return ;
-    print('Todo OK!');
+    formKey.currentState.save();
+
+    print(producto.titulo);
+    print(producto.valor);
+    print(producto.disponible);
   }
 }
