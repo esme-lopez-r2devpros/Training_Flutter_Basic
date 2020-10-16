@@ -45,6 +45,10 @@ class HomePage extends StatelessWidget {
       background: Container(
         color: Colors.red,
       ),
+      onDismissed: (direccion){
+          //TODO: Borrar producto
+          productosProvider.borrarProducto(producto.id);
+      },
           child: ListTile(
         title: Text('${ producto.titulo} - ${producto.valor}'),
         subtitle: Text(producto.id),
