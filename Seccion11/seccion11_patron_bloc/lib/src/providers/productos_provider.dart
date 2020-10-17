@@ -1,6 +1,7 @@
 
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:seccion11_patron_bloc/src/models/producto_model.dart';
 import 'package:http/http.dart' as http;
@@ -60,4 +61,9 @@ class ProductosProvider {
     return 1;
   }
 
+  Future<String> subirImagen(File imagen) async{
+
+      final url= Uri.parse('https://res.cloudinary.com/dqoq675qk/image/upload/v1602968342/m3f3mrm5ir4ko9wcct0j.jpg');
+      
+  }
 }
