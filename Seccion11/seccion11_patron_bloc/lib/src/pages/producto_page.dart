@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:seccion11_patron_bloc/src/models/producto_model.dart';
 import 'package:seccion11_patron_bloc/src/providers/productos_provider.dart';
@@ -18,6 +21,7 @@ class _ProductoPageState extends State<ProductoPage> {
   final productoProvider =  new ProductosProvider();
   ProductoModel producto=new ProductoModel();
   bool     _guardando     =false;
+  File foto;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +37,12 @@ class _ProductoPageState extends State<ProductoPage> {
         actions: [
           IconButton(
             icon: Icon(Icons.photo_size_select_actual),
-            onPressed: () {},
+            //onPressed: _seleccionarFoto,
+            onPressed: _seleccionarFoto(ImageSource.gallery),
           ),
           IconButton(
             icon: Icon(Icons.camera_alt),
-            onPressed: () {},
+            onPressed: _tomarFoto,
           ),
         ],
       ),
@@ -48,6 +53,7 @@ class _ProductoPageState extends State<ProductoPage> {
             key: formKey,
             child: Column(
               children: [
+                _mostrarFoto(),
                 _crearNombre(),
                 _crearPrecio(),
                 _crearDisponible(),
@@ -158,4 +164,42 @@ class _ProductoPageState extends State<ProductoPage> {
 
     scaffoldKey.currentState.showSnackBar(snackbar);
   }
+
+  Widget _mostrarFoto(){
+    if(producto.fotoUrl!=null){
+      
+      return Container();
+    }else{
+      return Image(
+        image: AssetImage(foto?.path ?? 'assets/no-image.png'),
+        height: 300.0,
+        fit: BoxFit.cover,
+      );
+    }
+
+  }
+  
+   _seleccionarFoto(ImageSource origin) async {
+    final _picker = ImagePicker();
+    final pickedFile= await _picker.getImage(source: origin);
+    foto=File(pickedFile.path);
+
+    if(foto!=null){
+      
+    }
+ 
+    setState(() {});
+  }
+
+  /*foto= await ImagePicker.pickImage(
+      source: ImageSource.gallery
+    );
+ 
+    if (foto != null) {
+     // product.urlImg = null;
+    }*/
+
+
+
+  _tomarFoto(){}
 }
