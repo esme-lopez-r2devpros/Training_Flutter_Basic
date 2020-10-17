@@ -188,7 +188,11 @@ class _ProductoPageState extends State<ProductoPage> {
    _seleccionarFoto() async {
     final _picker = ImagePicker();
     final pickedFile= await _picker.getImage(source: ImageSource.gallery);
-    foto=File(pickedFile.path);
+    if(pickedFile!=null)
+    {
+       foto=File(pickedFile.path);
+    }
+   
 
     if(foto!=null){
       
