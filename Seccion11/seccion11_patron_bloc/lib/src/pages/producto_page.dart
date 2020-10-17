@@ -186,30 +186,24 @@ class _ProductoPageState extends State<ProductoPage> {
   
   
    _seleccionarFoto() async {
+   _procesarImagen(ImageSource.gallery);
+  }
+
+  _tomarFoto() async{
+    _procesarImagen(ImageSource.camera);
+  }
+
+  _procesarImagen(ImageSource origen) async{
     final _picker = ImagePicker();
-    final pickedFile= await _picker.getImage(source: ImageSource.gallery);
+    final pickedFile= await _picker.getImage(source: origen);
     if(pickedFile!=null)
     {
        foto=File(pickedFile.path);
     }
    
-
-    if(foto!=null){
-      
+    if(foto!=null){   
     }
  
     setState(() {});
   }
-
-  /*foto= await ImagePicker.pickImage(
-      source: ImageSource.gallery
-    );
- 
-    if (foto != null) {
-     // product.urlImg = null;
-    }*/
-
-
-
-  _tomarFoto(){}
 }
