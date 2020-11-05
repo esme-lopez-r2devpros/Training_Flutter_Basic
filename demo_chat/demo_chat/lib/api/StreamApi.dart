@@ -44,7 +44,10 @@ class StreamApi {
     List<String> idMembers = const [],
   }) async {
     final channel = client.channel(type, id: id);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     channel.watch();
     return channel;
   }
